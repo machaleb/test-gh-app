@@ -5,10 +5,13 @@ import (
 	"log"
 
 	"github.com/go-git/go-git/v5"
+	privatemod "github.com/machaleb/private-mod"
 )
 
 func main() {
 	fmt.Println("Hello, World!")
+	// Comes from a private repo, so the build only succeeds if GitHub App auth works.
+	fmt.Println(privatemod.Greeting("test-gh-app"))
 
 	// Use the go-git module to read this repository's remotes.
 	repo, err := git.PlainOpen(".")
